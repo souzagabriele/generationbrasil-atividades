@@ -19,17 +19,6 @@ public class TestaCliente {
 		cadastro3.setNome("Samuel"); 
 		cadastro3.setIdade(23);
 		cadastro3.setSalario(1200);
-
-		
-		/*System.out.println("Entre com o seu nome: ");
-		cadastro.setNome(scan.next());
-
-		System.out.println("Entre com sua idade: ");
-		cadastro.setIdade(scan.nextInt());
-		
-		System.out.println("Entre com seu salário: ");
-		cadastro.setSalario(scan.nextInt());*/
-		
 		
 		System.out.println("Nome do cliente: " + cadastro1.getNome());
 		System.out.println("Idade: " + cadastro1.getIdade());
