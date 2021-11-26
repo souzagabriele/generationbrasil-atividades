@@ -1,0 +1,28 @@
+create database db_ecommerce
+
+use database db_ecommerce
+
+create table tb_produtos(
+	id bigint(5) auto_increment,
+	nome varchar(30) not null,
+    categoria varchar(20) not null,
+    valor decimal(10,2) not null,
+    codigo int(5) not null,
+    ativo boolean,
+    
+    primary key (id)
+);
+
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Eudora Unique EDP", "Perfumaria", 179.90, 70206, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Diva Nuit Colônia", "Perfumaria", 89.90, 98036, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Shampoo Nutri Rose", "Cabelos", 31.99, 01543, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Hidratante Diva", "Cuidados com o Corpo", 44.99, 67098, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Base Leve Soul", "Maquiagem", 21.99, 29807, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Sabonete Líquido Velvet", "Cuidados com o Corpo", 34.99, 45790, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Condicionador Nutri Rose", "Cabelos", 34.99, 70424, true);
+insert into tb_produtos (nome, categoria, valor, codigo, ativo) values ("Lápis de olho GLAM", "Maquiagem", 24.99, 36425, true);
+
+select * from tb_produtos where valor > 500;
+select * from tb_produtos where valor < 500;
+
+update tb_produtos set valor = 49.99 where id = 8;

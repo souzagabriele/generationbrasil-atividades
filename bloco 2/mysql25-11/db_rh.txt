@@ -1,0 +1,26 @@
+create database db_rh
+
+use db_rh
+
+create table tb_colaboradores(
+id bigint auto_increment,
+    nome varchar(40) not null,
+    idade bigint(3) not null,
+    funcao varchar(30) not null
+    salario decimal (10,2), not null
+    ativo boolean,
+    
+    primary key(id)
+)
+
+insert into tb_colaboradores (nome, idade, funcao, salario, ativo) values ("Gabriele", 20, "Desenvolvedora Front-End", 3000, true);
+insert into tb_colaboradores (nome, idade, funcao, salario, ativo) values ("Samuel", 23, "Desenvolvedor de Jogos", 6000, true);
+insert into tb_colaboradores (nome, idade, funcao, salario, ativo) values ("Rafael", 28, "Analista de Suporte", 5000, true);
+insert into tb_colaboradores (nome, idade, funcao, salario, ativo) values ("Kelly", 23, "Desing UX/UI", 4000, true);
+insert into tb_colaboradores (nome, idade, funcao, salario, ativo) values ("Isabele", 22, "Desenvolvedora Back-end", 3000, true);
+
+select * from tb_colaboradores where salario > 2000;
+
+select * from tb_colaboradores where salario < 2000;
+
+update tb_colaboradores set salario = 3500 where id = 1;
