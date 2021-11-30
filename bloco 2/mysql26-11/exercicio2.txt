@@ -1,0 +1,65 @@
+
+create database db_pizzaria_giuseppe;
+
+
+use db_pizzaria_giuseppe;
+
+create table tb_categoria(
+	id bigint(5)  auto_increment,
+    categoria varchar(55) not null,
+    tamanho varchar (20) not null,
+    borda varchar(20)not null,
+  
+  primary key(id)
+);
+
+
+create table tb_pizza(
+	id bigint (5) auto_increment,
+    sabor varchar(55) not null,
+    valor decimal (10,2),
+    vegetariana boolean,
+    refrigerante varchar(30) not null,
+    categoria_id bigint not null,
+    
+    primary key(id),
+    foreign key (categoria_id) references tb_categoria(id)
+    
+   );
+   
+
+   insert into tb_categoria (categoria, tamanho, borda) values ("Pizza Salgada", "Grande", "Catupiry");
+   insert into tb_categoria (categoria, tamanho, borda) values ("Pizza Salgada", "Média", "Cheddar");
+   insert into tb_categoria (categoria, tamanho, borda) values ("Pizza Salgada", "Grande", "Cheddar");
+   insert into tb_categoria (categoria, tamanho, borda) values ("Pizza Doce", "Pequena", "Sem borda");
+   insert into tb_categoria (categoria, tamanho, borda) values ("Pizza Salgada", "Família", "Catupiry");
+   
+
+   select * from tb_categoria;
+   
+
+   insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Portuguesa", "39.99", false, "GOOB", 1);
+	insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Bauru", "37.99", false, "Dolly", 1);
+    insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Baiana", "45.99", false, "Guaraná Jesus", 2);
+    insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Milho", "33.99", false, "Sprite", 3);
+	insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Frango com Catupiry", "39.99", true, "Guaraná antarctica", 5);
+    insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Romeu e Julieta", "45.99", false, "GOOB", 4);
+    insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Vegetariana", "25.99", true, "Coca-Cola", 3);
+    insert into tb_pizza (sabor, valor, vegetariana, refrigerante, categoria_id) values ("Atum", "31.99", false, "Dolly, 1);
+    
+
+    select * from tb_pizza;
+
+
+select * from tb_pizza where valor > 45.00;
+
+select * from tb_pizza where valor > 29.00 and valor < 60.00;
+
+ select * from tb_pizza where sabor like "%c%";
+
+   select * from tb_pizza
+   inner join tb_categoria on tb_categoria.id = tb_pizza.categoria_id
+   
+   select * from tb_pizza
+   inner join tb_categoria on tb_categoria.id = tb_pizza.categoria_id
+   where tb_categoria.categoria like "%Pizza Doce%"

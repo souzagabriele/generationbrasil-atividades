@@ -1,0 +1,61 @@
+
+create database db_quitanda_chacara;
+
+use db_quitanda_chacara;
+
+
+create table tb_categoria(
+	id bigint(5)  auto_increment,
+    Fruta varchar(40) not null,
+    fresca boolean,
+    estacao boolean,
+  
+  primary key(id)
+);
+ 
+create table tb_produto(
+	id bigint (5) auto_increment,
+    nome varchar(30) not null,
+    valor decimal (10,2),
+    peso bigint (10),
+    diaEmbalada date,
+    categoria_id bigint not null,
+    
+    primary key(id),
+    foreign key (categoria_id) references tb_categoria(id)
+    
+   );
+
+ insert into tb_categoria (Fruta, true, true) values ("Manga", true, true);
+insert into tb_categoria (Fruta, true, true) values ("Abacaxi", true, true);
+insert into tb_categoria (Fruta, true, true) values ("Melão", true, true);
+insert into tb_categoria (Fruta, false, false) values ("Pera", false, false);
+insert into tb_categoria (Fruta, true, true) values ("Banana", true, true);
+
+ select * from tb_categoria;  
+
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Espada",5.99, 1, "2021-01-01",1);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Brasileiro",2,1234,"2021-02-02",2);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Thaiti",49.99,3,"2021-03-03",3);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Portuguesa",49.99,4,"2021-04-04",4);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Nanica",51.99,5,"2021-05-05",1);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Rosa",61.99,6,"2021-06-06",3);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Da terra",35.99,7,"2021-70-07",3);
+insert into tb_produto (nome, valor, peso, diaEmbalada, categoria_id) values ("Prata",18.20,8,"2021-08-08",5);
+
+
+select * from tb_produto;
+
+select * from tb_produto where valor> 50.00;
+
+select * from tb_produto where valor > 3.00 and valor < 60.00;
+
+
+select * from tb_produto where nome like "%c%";
+
+   select * from tb_produto
+   inner join tb_categoria on tb_categoria.id = tb_produto.categoria_id
+
+      select * from tb_produto
+   inner join tb_categoria on tb_categoria.id = tb_produto.categoria_id
+   where tb_categoria.Fruta like "%Fresca%"
